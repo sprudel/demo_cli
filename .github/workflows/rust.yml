@@ -25,7 +25,6 @@ jobs:
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
-        override: true
 
     - name: Build project
       uses: actions-rs/cargo@v1
@@ -37,7 +36,7 @@ jobs:
       run: mkdir -p release
 
     - name: Copy binary to release directory
-      run: cp target/${{ matrix.target }}/release/demo_cli release/
+      run: cp target/${{ matrix.builds.target }}/release/demo_cli release/
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
